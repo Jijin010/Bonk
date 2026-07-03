@@ -39,7 +39,6 @@ body {
 }
 body.shake { animation: screenShake 0.35s ease; }
 
-/* HEADER */
 .header { text-align: center; padding: 18px 16px 0; }
 .header h1 {
   font-family: 'Fredoka One', cursive;
@@ -57,27 +56,19 @@ body.shake { animation: screenShake 0.35s ease; }
   font-style: italic;
 }
 
-/* STRESS BAR */
 .stress-section { padding: 14px 20px 0; max-width: 500px; margin: 0 auto; }
 .stress-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  margin-bottom: 6px;
-  color: rgba(255,255,255,0.8);
-  font-weight: 700;
+  display: flex; justify-content: space-between;
+  font-size: 0.85rem; margin-bottom: 6px;
+  color: rgba(255,255,255,0.8); font-weight: 700;
 }
 .stress-bar-wrap {
   background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  height: 24px;
-  overflow: hidden;
+  border-radius: 20px; height: 24px; overflow: hidden;
   border: 2px solid rgba(255,255,255,0.15);
-  position: relative;
 }
 .stress-bar {
-  height: 100%;
-  border-radius: 20px;
+  height: 100%; border-radius: 20px;
   background: linear-gradient(90deg, var(--red), #ff6348);
   transition: width 0.4s ease, background 0.6s ease;
   position: relative;
@@ -91,68 +82,47 @@ body.shake { animation: screenShake 0.35s ease; }
   border-radius: 10px;
 }
 
-/* STATS */
 .stats-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 10px 20px 0;
-  max-width: 500px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  display: flex; justify-content: center;
+  gap: 12px; padding: 10px 20px 0;
+  max-width: 500px; margin: 0 auto; flex-wrap: wrap;
 }
 .stat-box {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 14px;
-  padding: 7px 16px;
-  text-align: center;
-  min-width: 85px;
+  border-radius: 14px; padding: 7px 16px;
+  text-align: center; min-width: 85px;
 }
 .stat-box .num {
   font-family: 'Fredoka One', cursive;
-  font-size: 1.45rem;
-  color: var(--yellow);
-  line-height: 1;
+  font-size: 1.45rem; color: var(--yellow); line-height: 1;
 }
 .stat-box .lbl {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.55);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 0.68rem; color: rgba(255,255,255,0.55);
+  text-transform: uppercase; letter-spacing: 1px;
 }
 
-/* COMBO BANNER */
 #combo-banner {
-  text-align: center;
-  height: 34px;
+  text-align: center; height: 34px;
   font-family: 'Fredoka One', cursive;
-  font-size: 1.35rem;
-  color: var(--yellow);
-  opacity: 0;
-  transition: opacity 0.2s;
+  font-size: 1.35rem; color: var(--yellow);
+  opacity: 0; transition: opacity 0.2s;
   text-shadow: 0 0 20px rgba(255,217,61,0.9);
   margin-top: 4px;
 }
 #combo-banner.show { opacity: 1; }
 
-/* ARENA */
 .arena {
-  display: flex;
-  justify-content: center;
+  display: flex; justify-content: center;
   align-items: flex-end;
   gap: clamp(24px, 8vw, 70px);
   padding: 8px 20px 0;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 600px; margin: 0 auto;
 }
 
-/* CHARACTER WRAP */
 .character-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   position: relative;
@@ -161,48 +131,39 @@ body.shake { animation: screenShake 0.35s ease; }
   font-family: 'Fredoka One', cursive;
   font-size: 0.82rem;
   background: rgba(255,71,87,0.85);
-  padding: 3px 12px;
-  border-radius: 20px;
-  margin-bottom: 5px;
-  white-space: nowrap;
+  padding: 3px 12px; border-radius: 20px;
+  margin-bottom: 5px; white-space: nowrap;
 }
 
-/* SPEECH BUBBLE */
+/* SPEECH BUBBLE — key fix: never auto-hide via CSS, always JS controlled */
 .speech-bubble {
   position: absolute;
-  top: -8px;
-  left: 50%;
+  top: -8px; left: 50%;
   transform: translateX(-50%) scale(0);
-  background: white;
-  color: #222;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 5px 9px;
-  border-radius: 10px;
-  white-space: normal;
-  max-width: 140px;
+  background: white; color: #222;
+  font-size: 0.68rem; font-weight: 700;
+  padding: 5px 9px; border-radius: 10px;
+  white-space: normal; max-width: 140px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 20;
   transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
-  pointer-events: none;
-  line-height: 1.3;
+  pointer-events: none; line-height: 1.3;
+  /* min height so it doesn't collapse */
+  min-height: 28px;
+  display: flex; align-items: center; justify-content: center;
 }
 .speech-bubble::after {
   content: '';
-  position: absolute;
-  bottom: -7px; left: 50%;
+  position: absolute; bottom: -7px; left: 50%;
   transform: translateX(-50%);
   border: 7px solid transparent;
-  border-top-color: white;
-  border-bottom: none;
+  border-top-color: white; border-bottom: none;
 }
 .speech-bubble.show { transform: translateX(-50%) scale(1); }
 
-/* STARS */
 .stars {
-  position: absolute;
-  top: -16px; left: 50%;
+  position: absolute; top: -16px; left: 50%;
   transform: translateX(-50%);
   display: flex; gap: 3px;
   opacity: 0; transition: opacity 0.2s;
@@ -218,73 +179,53 @@ body.shake { animation: screenShake 0.35s ease; }
   100% { transform: rotate(360deg) translateY(0); }
 }
 
-/* HEAD */
 .head {
   width: 62px; height: 58px;
   background: var(--skin);
   border-radius: 50% 50% 45% 45%;
-  margin: 0 auto;
-  position: relative;
+  margin: 0 auto; position: relative;
   border: 2px solid rgba(0,0,0,0.13);
   overflow: visible;
 }
 .hair {
-  position: absolute;
-  top: -9px; left: -3px; right: -3px;
-  height: 22px;
-  background: #2c1810;
-  border-radius: 50% 50% 0 0;
-  z-index: 1;
+  position: absolute; top: -9px; left: -3px; right: -3px;
+  height: 22px; background: #2c1810;
+  border-radius: 50% 50% 0 0; z-index: 1;
 }
 .hair.evil::before, .hair.evil::after {
-  content: '';
-  position: absolute;
-  top: -9px;
-  width: 10px; height: 14px;
-  background: #8b0000;
+  content: ''; position: absolute; top: -9px;
+  width: 10px; height: 14px; background: #8b0000;
   clip-path: polygon(50% 0%,0% 100%,100% 100%);
 }
 .hair.evil::before { left: 8px; }
 .hair.evil::after { right: 8px; }
 
-/* EYES */
 .eyes {
-  position: absolute;
-  top: 18px; left: 0; right: 0;
-  display: flex; justify-content: center; gap: 10px;
-  z-index: 2;
+  position: absolute; top: 18px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 10px; z-index: 2;
 }
 .eye {
-  width: 12px; height: 12px;
-  background: white; border-radius: 50%;
-  position: relative; border: 1.5px solid #333;
+  width: 12px; height: 12px; background: white;
+  border-radius: 50%; position: relative; border: 1.5px solid #333;
 }
 .eye::after {
-  content: '';
-  position: absolute;
-  width: 6px; height: 6px;
-  background: #1a1a2e; border-radius: 50%;
-  top: 2px; left: 2px;
+  content: ''; position: absolute;
+  width: 6px; height: 6px; background: #1a1a2e;
+  border-radius: 50%; top: 2px; left: 2px;
 }
 .eye.evil { border-color: #8b0000; }
 .eye.evil::before {
-  content: '';
-  position: absolute;
-  top: -3px; left: -1px;
-  width: 14px; height: 5px;
-  background: var(--skin); border-radius: 2px;
-  z-index: 3; transform: rotate(-15deg);
+  content: ''; position: absolute; top: -3px; left: -1px;
+  width: 14px; height: 5px; background: var(--skin);
+  border-radius: 2px; z-index: 3; transform: rotate(-15deg);
 }
 .eye.evil.right::before { transform: rotate(15deg); }
 .eye.dizzy::after {
-  content: '×';
-  font-size: 11px; font-weight: 900;
+  content: '×'; font-size: 11px; font-weight: 900;
   color: #ff4757; background: none;
-  top: -2px; left: 0;
-  width: auto; height: auto; border-radius: 0;
+  top: -2px; left: 0; width: auto; height: auto; border-radius: 0;
 }
 
-/* MOUTH */
 .mouth { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 2; }
 .mouth-smug {
   width: 22px; height: 8px;
@@ -301,14 +242,11 @@ body.shake { animation: screenShake 0.35s ease; }
   display: none;
 }
 
-/* NECK */
 .neck { width: 18px; height: 8px; background: var(--skin); margin: 0 auto; }
 
-/* BODY */
 .body {
-  width: 72px; height: 70px;
-  margin: 0 auto; position: relative;
-  border-radius: 8px 8px 4px 4px; overflow: hidden;
+  width: 72px; height: 70px; margin: 0 auto;
+  position: relative; border-radius: 8px 8px 4px 4px; overflow: hidden;
 }
 .body-inner {
   position: absolute; inset: 0;
@@ -327,8 +265,7 @@ body.shake { animation: screenShake 0.35s ease; }
   width: 0; height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-top: 18px solid var(--camo1);
-  z-index: 2;
+  border-top: 18px solid var(--camo1); z-index: 2;
 }
 .badge {
   position: absolute; top: 6px;
@@ -337,20 +274,11 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 .badge.left { left: 4px; }
 .badge.right { right: 4px; }
-.badge::after {
-  content: '★'; font-size: 6px; color: var(--yellow);
-  position: absolute; top: 0; left: 2px;
-}
+.badge::after { content: '★'; font-size: 6px; color: var(--yellow); position: absolute; top: 0; left: 2px; }
 
-/* BELT */
-.belt {
-  width: 72px; height: 10px;
-  background: #1a1a1a; margin: 0 auto;
-  display: flex; align-items: center; justify-content: center;
-}
+.belt { width: 72px; height: 10px; background: #1a1a1a; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
 .belt-buckle { width: 14px; height: 8px; background: #888; border-radius: 2px; border: 1px solid #555; }
 
-/* LEGS */
 .legs { width: 72px; margin: 0 auto; display: flex; gap: 4px; }
 .leg { flex: 1; height: 52px; position: relative; overflow: hidden; border-radius: 0 0 4px 4px; }
 .leg-inner {
@@ -361,11 +289,9 @@ body.shake { animation: screenShake 0.35s ease; }
     var(--camo2);
 }
 
-/* BOOTS */
 .boots { width: 72px; margin: 0 auto; display: flex; gap: 4px; }
 .boot { flex: 1; height: 13px; background: #1a1a1a; border-radius: 2px 2px 4px 4px; }
 
-/* ARMS */
 .arms {
   position: absolute; top: 60px; left: -16px; right: -16px;
   display: flex; justify-content: space-between; pointer-events: none;
@@ -379,7 +305,6 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 .hand { width: 16px; height: 13px; background: var(--skin); border-radius: 4px; margin-top: -2px; }
 
-/* BONK ANIMATION */
 @keyframes bonkChar {
   0%   { transform: translateY(0) rotate(0) scale(1); }
   15%  { transform: translateY(-16px) rotate(-6deg) scale(1.05); }
@@ -390,7 +315,6 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 .character.bonking { animation: bonkChar 0.45s ease; }
 
-/* SCARED SHAKE */
 @keyframes scaredShake {
   0%,100% { transform: translateX(0); }
   20% { transform: translateX(-4px); }
@@ -398,9 +322,8 @@ body.shake { animation: screenShake 0.35s ease; }
   60% { transform: translateX(-3px); }
   80% { transform: translateX(3px); }
 }
-.character.scared { animation: scaredShake 0.3s ease infinite; }
+.character.scared { animation: scaredShake 0.3s ease; }
 
-/* HAMMER */
 .hammer-wrap { text-align: center; padding: 8px 0 2px; }
 .hammer-emoji {
   font-size: clamp(2.4rem, 9vw, 3.8rem);
@@ -414,13 +337,11 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 .hammer-hint { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
 
-/* FLOATING BONK TEXT */
 .float-text {
   position: fixed;
   font-family: 'Fredoka One', cursive;
   font-size: clamp(1.3rem, 5.5vw, 2rem);
-  pointer-events: none;
-  z-index: 999;
+  pointer-events: none; z-index: 999;
   animation: floatUp 0.95s ease forwards;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
@@ -430,7 +351,6 @@ body.shake { animation: screenShake 0.35s ease; }
   100% { transform: translateY(-95px) scale(0.8) rotate(-2deg); opacity: 0; }
 }
 
-/* BUTTONS */
 .bottom-section {
   max-width: 500px; margin: 10px auto 0;
   padding: 0 20px 30px;
@@ -453,69 +373,53 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 .btn-reset:active { transform: scale(0.96); }
 
-/* MODAL */
 .modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.78);
-  z-index: 100;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.78);
+  z-index: 100; display: flex; align-items: center;
+  justify-content: center; padding: 24px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
   backdrop-filter: blur(6px);
 }
 .modal-overlay.show { opacity: 1; pointer-events: all; }
 .modal-box {
   background: linear-gradient(135deg, #2d1b4e, #1a1a3e);
   border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 24px;
-  padding: 30px 22px;
-  max-width: 360px; width: 100%;
-  text-align: center;
+  border-radius: 24px; padding: 30px 22px;
+  max-width: 360px; width: 100%; text-align: center;
   transform: scale(0.85);
   transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 .modal-overlay.show .modal-box { transform: scale(1); }
-.modal-box h2 {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.55rem; color: var(--pink); margin-bottom: 14px;
-}
+.modal-box h2 { font-family: 'Fredoka One', cursive; font-size: 1.55rem; color: var(--pink); margin-bottom: 14px; }
 .modal-box p { font-size: 0.92rem; line-height: 1.75; color: rgba(255,255,255,0.85); }
 .modal-box .close-btn {
-  margin-top: 20px; padding: 11px 34px;
-  border: none; border-radius: 50px;
-  background: linear-gradient(135deg, var(--pink), #c0392b);
+  margin-top: 20px; padding: 11px 34px; border: none;
+  border-radius: 50px; background: linear-gradient(135deg, var(--pink), #c0392b);
   color: white; font-family: 'Fredoka One', cursive;
   font-size: 1rem; cursor: pointer; transition: transform 0.15s;
 }
 .modal-box .close-btn:active { transform: scale(0.96); }
 
-/* VICTORY */
 .victory-overlay {
   position: fixed; inset: 0;
   background: linear-gradient(135deg, rgba(20,0,40,0.97), rgba(10,0,30,0.97));
-  z-index: 200;
-  display: flex; flex-direction: column;
+  z-index: 200; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   padding: 30px; text-align: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.6s;
+  opacity: 0; pointer-events: none; transition: opacity 0.6s;
 }
 .victory-overlay.show { opacity: 1; pointer-events: all; }
 .victory-overlay h1 {
   font-family: 'Fredoka One', cursive;
   font-size: clamp(2rem, 8vw, 3.2rem);
   background: linear-gradient(135deg, var(--yellow), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 14px;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 14px;
 }
 .victory-overlay p {
   font-size: clamp(0.9rem, 3.2vw, 1.1rem);
-  line-height: 1.85; color: rgba(255,255,255,0.9);
-  max-width: 340px;
+  line-height: 1.85; color: rgba(255,255,255,0.9); max-width: 340px;
 }
 .victory-overlay .sub {
   font-size: clamp(0.78rem, 2.8vw, 0.95rem);
@@ -523,17 +427,15 @@ body.shake { animation: screenShake 0.35s ease; }
 }
 #confetti-canvas { position: fixed; inset: 0; z-index: 199; pointer-events: none; }
 .victory-overlay .restart-btn {
-  margin-top: 26px; padding: 13px 34px;
-  border: none; border-radius: 50px;
+  margin-top: 26px; padding: 13px 34px; border: none;
+  border-radius: 50px;
   background: linear-gradient(135deg, var(--yellow), #f39c12);
   color: #1a1a2e; font-family: 'Fredoka One', cursive;
   font-size: 1.05rem; cursor: pointer;
-  box-shadow: 0 4px 20px rgba(255,217,61,0.4);
-  transition: transform 0.15s;
+  box-shadow: 0 4px 20px rgba(255,217,61,0.4); transition: transform 0.15s;
 }
 .victory-overlay .restart-btn:active { transform: scale(0.96); }
 
-/* BONK STREAK BADGE */
 #streak-badge {
   position: fixed; top: 16px; right: 16px;
   background: linear-gradient(135deg, #ff4757, #c0392b);
@@ -548,11 +450,11 @@ body.shake { animation: screenShake 0.35s ease; }
 </head>
 <body>
 
-<audio id="snd-bonk" src="bonk.mp3" preload="auto"></audio>
-<audio id="snd-win"  src="victory.mp3" preload="auto"></audio>
+<!-- Preload bonk audio buffer — cloned on each tap for overlap -->
+<audio id="snd-bonk-src" src="bonk.mp3" preload="auto" style="display:none"></audio>
+<audio id="snd-win" src="victory.mp3" preload="auto" style="display:none"></audio>
 <canvas id="confetti-canvas"></canvas>
 
-<!-- STREAK BADGE -->
 <div id="streak-badge">🔥 <span id="streak-num">0</span> Streak!</div>
 
 <!-- VICTORY -->
@@ -564,7 +466,7 @@ body.shake { animation: screenShake 0.35s ease; }
   <button class="restart-btn" onclick="resetGame()">Bonk them again? 🔨😂</button>
 </div>
 
-<!-- LOVE MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="love-modal">
   <div class="modal-box">
     <h2>💌 For You</h2>
@@ -573,13 +475,11 @@ body.shake { animation: screenShake 0.35s ease; }
   </div>
 </div>
 
-<!-- PAGE -->
 <div class="header">
   <h1>🔨 The Bonk Room</h1>
   <p>Your safe space. Tap them. Bonk them. Let it all out. 💕</p>
 </div>
 
-<!-- STRESS BAR -->
 <div class="stress-section">
   <div class="stress-label">
     <span>😤 Stress Level</span>
@@ -590,7 +490,6 @@ body.shake { animation: screenShake 0.35s ease; }
   </div>
 </div>
 
-<!-- STATS -->
 <div class="stats-row">
   <div class="stat-box">
     <div class="num" id="total-bonks">0</div>
@@ -606,10 +505,8 @@ body.shake { animation: screenShake 0.35s ease; }
   </div>
 </div>
 
-<!-- COMBO -->
 <div id="combo-banner">🔥 COMBO x<span id="combo-num">1</span>!</div>
 
-<!-- ARENA -->
 <div class="arena">
 
   <!-- Commander -->
@@ -696,36 +593,29 @@ body.shake { animation: screenShake 0.35s ease; }
 
 </div>
 
-<!-- HAMMER -->
 <div class="hammer-wrap">
   <div class="hammer-emoji">🔨</div>
   <div class="hammer-hint">👆 Tap on them to bonk!</div>
 </div>
 
-<!-- BUTTONS -->
 <div class="bottom-section">
   <button class="btn-love-msg" onclick="openModal()">💌 A message from your person</button>
   <button class="btn-reset" onclick="resetGame()">🔄 Reset &amp; Bonk Again</button>
 </div>
 
 <script>
-// ── DIALOGUES ──
-// Each array = progression: confident → scared → begging
 const DIALOGUES = [
   [
-    // Commander — early (smug/arrogant)
     "How dare you hit me!! 😤",
     "Do you know who I am?! 😡",
     "I am the Commander!! 🫵",
     "This is disrespectful!! 😤",
     "You'll regret this!! 👊",
-    // mid (surprised)
     "Ayoo adikura kapathungaaa 😱",
     "Ow ow ow!! That actually hurt!! 😣",
     "H-hey stop it!! 😰",
     "W-wait wait wait!! 😨",
     "Engala vittru!! 😭",
-    // late (full panic)
     "Mannichukoo pleaseee!! 🙏",
     "OKAY I GIVE UP!! 😵",
     "Please no more!! I'll be nice!! 😭",
@@ -733,25 +623,30 @@ const DIALOGUES = [
     "I'm sorryyy!! Mannichukoo!! 🙏😭",
   ],
   [
-    // The Person You Hate — early
     "How dare youuu!! 😠",
     "You can't do this to me!! 😡",
     "I have authority here!! 😤",
     "Stop it right now!! 🫵",
     "This is unacceptable!! 😤",
-    // mid
     "Ayoo adikura kapathungaaa!! 😱",
     "Heyyy it's hurting!! 😣",
     "O-okay okay calm down!! 😰",
     "Engala vittru please!! 😨",
     "W-why are you like this!! 😭",
-    // late
     "Mannichukoo I beg you!! 🙏",
     "FINE YOU WIN!! 😵",
     "Please I have feelings too!! 😭",
     "Ayoo stop stop STOP!! 😭🙏",
     "Okay okay I'll leave you alone FOREVER!! 🙏😭",
   ]
+];
+
+const TANGLISH = [
+  "ayoo adikura kapathungaaa 😱",
+  "mannichukoo pleaseee 🙏",
+  "engala vittru!! 😭",
+  "ayoo ayoo noooo 😭",
+  "please vittruuuu 🙏😭"
 ];
 
 const BONK_WORDS = [
@@ -762,43 +657,43 @@ const BONK_WORDS = [
 
 const LOVE_MESSAGES = [
   {
-    msg: `Hey you... 🌸<br><br>I know today was really tough.<br>I know they made it harder than it should be.<br>But look at you — still standing, still fighting. 💪<br><br>That's not just strength. That's YOU.<br>And I'm so incredibly proud of you. ❤️<br><br>Now go bonk them one more time for me. 😄`,
-    sub: `— Your person, always in your corner 🫶`
+    msg:`Hey you... 🌸<br><br>I know today was really tough.<br>I know they made it harder than it should be.<br>But look at you — still standing, still fighting. 💪<br><br>That's not just strength. That's YOU.<br>And I'm so incredibly proud of you. ❤️<br><br>Now go bonk them one more time for me. 😄`,
+    sub:`— Your person, always in your corner 🫶`
   },
   {
-    msg: `I see you. Every single day. 🌙<br><br>The way you show up even when it's hard.<br>The way you smile even when they're awful.<br>The way you keep going when you could give up.<br><br>That's why I care about you so much. 💕<br><br>You're not alone. Not even for a second. ❤️<br><br>Now go get them! 😂🔨`,
-    sub: `— Someone who thinks you're absolutely amazing 🌟`
+    msg:`I see you. Every single day. 🌙<br><br>The way you show up even when it's hard.<br>The way you smile even when they're awful.<br>The way you keep going when you could give up.<br><br>That's why I care about you so much. 💕<br><br>You're not alone. Not even for a second. ❤️<br><br>Now go get them! 😂🔨`,
+    sub:`— Someone who thinks you're absolutely amazing 🌟`
   },
   {
-    msg: `Listen to me for a second... 💌<br><br>No TL. No manager. No commander.<br>Nobody in this world has the right to make you feel small.<br><br>Because you? You're enormous. 🌟<br>Bigger than all of them combined.<br><br>I'm here. Always. 💕<br><br>Okay now go bonk them harder! 🔨😂`,
-    sub: `— Your biggest fan, forever 🫶`
+    msg:`Listen to me for a second... 💌<br><br>No commander. No one you hate.<br>Nobody in this world has the right to make you feel small.<br><br>Because you? You're enormous. 🌟<br>Bigger than all of them combined.<br><br>I'm here. Always. 💕<br><br>Okay now go bonk them harder! 🔨😂`,
+    sub:`— Your biggest fan, forever 🫶`
   },
   {
-    msg: `You know what I love about you? 💕<br><br>You could've given up a hundred times.<br>But you didn't. You never do.<br><br>That's the kind of person you are —<br>stronger than you even know. 💪✨<br><br>I'm so proud to have you in my life. ❤️<br><br>Now make them regret everything! 😄🔨`,
-    sub: `— Yours, rooting for you always 🌸`
+    msg:`You know what I love about you? 💕<br><br>You could've given up a hundred times.<br>But you didn't. You never do.<br><br>That's the kind of person you are —<br>stronger than you even know. 💪✨<br><br>I'm so proud to have you in my life. ❤️<br><br>Now make them regret everything! 😄🔨`,
+    sub:`— Yours, rooting for you always 🌸`
   },
   {
-    msg: `Hey hey hey 😊<br><br>Come here for a second...<br><br>You did GREAT today. Even on the hard days,<br>you show up and you handle it.<br>That takes more courage than they'll ever understand. 🌟<br><br>I care about you more than words can say. 💕<br><br>Now let's get back to bonking!! 🔨😂`,
-    sub: `— Me, always here for you ❤️`
+    msg:`Hey hey hey 😊<br><br>Come here for a second...<br><br>You did GREAT today. Even on the hard days,<br>you show up and you handle it.<br>That takes more courage than they'll ever understand. 🌟<br><br>I care about you more than words can say. 💕<br><br>Now let's get back to bonking!! 🔨😂`,
+    sub:`— Me, always here for you ❤️`
   }
 ];
 
 const VICTORY_MESSAGES = [
   {
-    msg: `You absolutely destroyed them!! 💪<br>Every single bonk — they deserved it.<br>And you? You deserve all the good things in this world. 🌟`,
-    sub: `You're stronger than all of them put together. I love you. ❤️\n— Your person who's always watching over you 🫶`
+    msg:`You absolutely destroyed them!! 💪<br>Every single bonk — they deserved it.<br>And you? You deserve all the good things in this world. 🌟`,
+    sub:`You're stronger than all of them put together. I love you. ❤️<br>— Your person who's always watching over you 🫶`
   },
   {
-    msg: `STRESS = ZERO! 🎉<br>And it's all because of your unstoppable energy! 🔥<br>They never stood a chance against you.`,
-    sub: `I'm so proud of you. Every. Single. Day. 💕\n— Your forever cheerleader 🌸`
+    msg:`STRESS = ZERO! 🎉<br>And it's all because of your unstoppable energy! 🔥<br>They never stood a chance against you.`,
+    sub:`I'm so proud of you. Every. Single. Day. 💕<br>— Your forever cheerleader 🌸`
   },
   {
-    msg: `You BONKED the stress away!! 😂🔨<br>No commander, no hatred — nothing can stop you.<br>You are literally that girl. 👑`,
-    sub: `Thank you for being you. I care about you so much. ❤️\n— Someone who loves you endlessly 🫶`
+    msg:`You BONKED the stress away!! 😂🔨<br>No commander, no hatred — nothing can stop you.<br>You are literally that girl. 👑`,
+    sub:`Thank you for being you. I care about you so much. ❤️<br>— Someone who loves you endlessly 🫶`
   },
   {
-    msg: `VICTORY!! 🏆✨<br>They were no match for your power!<br>You came, you bonked, you conquered. 💪🔥`,
-    sub: `You're my favourite person and I'm so lucky. 💕\n— Always here, always yours ❤️`
+    msg:`VICTORY!! 🏆✨<br>They were no match for your power!<br>You came, you bonked, you conquered. 💪🔥`,
+    sub:`You're my favourite person and I'm so lucky. 💕<br>— Always here, always yours ❤️`
   }
 ];
 
@@ -809,23 +704,38 @@ let combo = 1;
 let streak = 0;
 let comboTimer = null;
 let streakTimer = null;
-let dialogueIndex = [0, 0];
-let bonkCount = [0, 0]; // per character, for progression
+let bonkCount = [0, 0];
+// Per-character bubble hide timers — KEY FIX
+let bubbleTimers = [null, null];
 
-const MAX_BONKS_TO_WIN = 35; // longer game!
+const MAX_BONKS_TO_WIN = 35;
 const STRESS_PER_BONK = 100 / MAX_BONKS_TO_WIN;
 
-function playSound(id) {
-  const s = document.getElementById(id);
+// ── SOUND: clone audio node so rapid taps never cut off ──
+function playBonk() {
+  const src = document.getElementById('snd-bonk-src');
+  if (!src) return;
+  // Clone the node — each clone plays independently
+  const clone = src.cloneNode();
+  clone.volume = 0.85;
+  clone.play().catch(() => {});
+  // Clean up after it finishes
+  clone.addEventListener('ended', () => clone.remove());
+  document.body.appendChild(clone);
+}
+
+function playWin() {
+  const s = document.getElementById('snd-win');
   if (!s) return;
   s.currentTime = 0;
+  s.volume = 0.9;
   s.play().catch(() => {});
 }
 
 function bonk(wrap, charIdx) {
   if (stress <= 0) return;
 
-  playSound('snd-bonk');
+  playBonk(); // cloned — never interrupted
 
   // Screen shake
   document.body.classList.remove('shake');
@@ -859,14 +769,14 @@ function bonk(wrap, charIdx) {
   document.getElementById('combo-count').textContent = 'x' + combo;
   if (combo >= 3) showComboBanner(combo);
 
-  // Character bonk
+  // Bonk animation
   const body = document.getElementById('body-' + charIdx);
   body.classList.remove('bonking', 'scared');
   void body.offsetWidth;
   body.classList.add('bonking');
   setTimeout(() => body.classList.remove('bonking'), 460);
 
-  // Face change based on how many times bonked
+  // Face update
   updateFace(charIdx, bonkCount[charIdx]);
 
   // Dizzy eyes
@@ -882,55 +792,53 @@ function bonk(wrap, charIdx) {
   stars.classList.add('show');
   setTimeout(() => stars.classList.remove('show'), 750);
 
-  // Dialogue — pick smartly based on bonk count
-  const dialList = DIALOGUES[charIdx];
-  let pickIdx;
-  const count = bonkCount[charIdx];
-  if (count <= 4) {
-    // early: first 5
-    pickIdx = (count - 1) % 5;
-  } else if (count <= 9) {
-    // mid: 5–9
-    pickIdx = 5 + ((count - 5) % 5);
-  } else {
-    // late: 10–14 (loop)
-    pickIdx = 10 + ((count - 10) % 5);
-  }
-
-  // Sprinkle tanglish randomly too
-  const tanglish = ["ayoo adikura kapathungaaa 😱", "mannichukoo pleaseee 🙏", "engala vittru!! 😭"];
-  let finalDialogue;
-  if (Math.random() < 0.28 && count > 3) {
-    finalDialogue = tanglish[Math.floor(Math.random() * tanglish.length)];
-  } else {
-    finalDialogue = dialList[pickIdx];
-  }
-
+  // ── SPEECH BUBBLE FIX ──
+  // Always clear previous hide timer before showing new text
   const bubble = document.getElementById('bubble-' + charIdx);
-  bubble.textContent = finalDialogue;
+  clearTimeout(bubbleTimers[charIdx]);
+
+  const count = bonkCount[charIdx];
+  let pickIdx;
+  if (count <= 4)       pickIdx = (count - 1) % 5;
+  else if (count <= 9)  pickIdx = 5 + ((count - 5) % 5);
+  else                  pickIdx = 10 + ((count - 10) % 5);
+
+  // Random tanglish sprinkle
+  let text;
+  if (Math.random() < 0.28 && count > 3) {
+    text = TANGLISH[Math.floor(Math.random() * TANGLISH.length)];
+  } else {
+    text = DIALOGUES[charIdx][pickIdx];
+  }
+
+  bubble.textContent = text;
   bubble.classList.add('show');
-  setTimeout(() => bubble.classList.remove('show'), 1700);
+
+  // Set fresh 1.8s hide timer — won't be cancelled by next tap
+  // because we clear it first at the top of this block
+  bubbleTimers[charIdx] = setTimeout(() => {
+    bubble.classList.remove('show');
+  }, 1800);
 
   // Float text
   spawnFloatText(wrap);
 
-  // Victory check
   if (stress <= 0) setTimeout(showVictory, 500);
 }
 
 function updateFace(charIdx, count) {
-  const smug = document.getElementById('mouth-smug-' + charIdx);
+  const smug  = document.getElementById('mouth-smug-' + charIdx);
   const scared = document.getElementById('mouth-scared-' + charIdx);
-  const body = document.getElementById('body-' + charIdx);
+  const body  = document.getElementById('body-' + charIdx);
 
   if (count >= 8) {
-    // Full scared — mouth flipped, body shaking
     smug.style.display = 'none';
     scared.style.display = 'block';
+    body.classList.remove('scared');
+    void body.offsetWidth;
     body.classList.add('scared');
-    setTimeout(() => body.classList.remove('scared'), 300);
+    setTimeout(() => body.classList.remove('scared'), 320);
   } else if (count >= 4) {
-    // Surprised mouth
     smug.style.borderRadius = '10px 10px 0 0';
     smug.style.borderTop = '2.5px solid #8b4513';
     smug.style.borderBottom = 'none';
@@ -952,16 +860,16 @@ function spawnFloatText(wrap) {
 }
 
 function updateStressBar() {
-  const bar = document.getElementById('stress-bar');
-  const pct = document.getElementById('stress-pct');
+  const bar  = document.getElementById('stress-bar');
+  const pct  = document.getElementById('stress-pct');
   const gone = document.getElementById('stress-gone');
   const s = Math.max(0, Math.round(stress));
   bar.style.width = s + '%';
   pct.textContent = s + '%';
   gone.textContent = (100 - s) + '%';
-  if (s > 60) bar.style.background = 'linear-gradient(90deg,#ff4757,#ff6348)';
+  if (s > 60)      bar.style.background = 'linear-gradient(90deg,#ff4757,#ff6348)';
   else if (s > 30) bar.style.background = 'linear-gradient(90deg,#ffa502,#ff6348)';
-  else bar.style.background = 'linear-gradient(90deg,#2ed573,#7bed9f)';
+  else             bar.style.background = 'linear-gradient(90deg,#2ed573,#7bed9f)';
 }
 
 function showComboBanner(n) {
@@ -973,7 +881,7 @@ function showComboBanner(n) {
 }
 
 function showVictory() {
-  playSound('snd-win');
+  playWin();
   const v = VICTORY_MESSAGES[Math.floor(Math.random() * VICTORY_MESSAGES.length)];
   document.getElementById('victory-msg').innerHTML = v.msg;
   document.getElementById('victory-sub').innerHTML = v.sub;
@@ -991,12 +899,13 @@ function closeModal() {
 }
 
 function resetGame() {
-  stress = 100;
-  totalBonks = 0;
-  combo = 1;
-  streak = 0;
-  dialogueIndex = [0, 0];
+  stress = 100; totalBonks = 0; combo = 1; streak = 0;
   bonkCount = [0, 0];
+  bubbleTimers.forEach((t, i) => {
+    clearTimeout(t);
+    document.getElementById('bubble-' + i).classList.remove('show');
+  });
+  bubbleTimers = [null, null];
   document.getElementById('total-bonks').textContent = '0';
   document.getElementById('combo-count').textContent = 'x1';
   document.getElementById('stress-gone').textContent = '0%';
@@ -1004,9 +913,8 @@ function resetGame() {
   document.getElementById('victory').classList.remove('show');
   stopConfetti();
   updateStressBar();
-  // Reset faces
   [0,1].forEach(i => {
-    const smug = document.getElementById('mouth-smug-' + i);
+    const smug  = document.getElementById('mouth-smug-' + i);
     const scared = document.getElementById('mouth-scared-' + i);
     smug.style.display = '';
     smug.style.borderRadius = '';
@@ -1029,8 +937,7 @@ function startConfetti() {
   particles = Array.from({length: 130}, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height - canvas.height,
-    w: 8 + Math.random() * 8,
-    h: 4 + Math.random() * 4,
+    w: 8 + Math.random() * 8, h: 4 + Math.random() * 4,
     color: ['#ffd93d','#ff6b9d','#a29bfe','#55efc4','#fd79a8','#ff4757','#74b9ff'][Math.floor(Math.random()*7)],
     speed: 2 + Math.random() * 3,
     angle: Math.random() * 360,
@@ -1048,8 +955,7 @@ function confettiLoop() {
     ctx.fillStyle = p.color;
     ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
     ctx.restore();
-    p.y += p.speed;
-    p.angle += p.spin;
+    p.y += p.speed; p.angle += p.spin;
     if (p.y > canvas.height) { p.y = -10; p.x = Math.random() * canvas.width; }
   });
   confettiAnimId = requestAnimationFrame(confettiLoop);
