@@ -7,29 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --camo1: #4a5e3a;
-  --camo2: #6b7c52;
-  --camo3: #8b7355;
-  --camo4: #2d3a1e;
-  --skin: #c68642;
-  --pink: #ff6b9d;
-  --yellow: #ffd93d;
-  --red: #ff4757;
-  --green: #2ed573;
-  --purple: #a29bfe;
-  --cream: #fdf6ee;
+  --camo1: #4a5e3a; --camo2: #6b7c52; --camo3: #8b7355; --camo4: #2d3a1e;
+  --skin: #c68642; --pink: #ff6b9d; --yellow: #ffd93d;
+  --red: #ff4757; --green: #2ed573; --purple: #a29bfe; --cream: #fdf6ee;
 }
-
 body {
   font-family: 'Nunito', sans-serif;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: white;
+  min-height: 100vh; overflow-x: hidden; color: white;
 }
-
 @keyframes screenShake {
   0%,100% { transform: translate(0,0) rotate(0); }
   20% { transform: translate(-6px,4px) rotate(-1deg); }
@@ -42,422 +29,166 @@ body.shake { animation: screenShake 0.35s ease; }
 .header { text-align: center; padding: 18px 16px 0; }
 .header h1 {
   font-family: 'Fredoka One', cursive;
-  font-size: clamp(1.8rem, 7vw, 3rem);
+  font-size: clamp(1.8rem,7vw,3rem);
   background: linear-gradient(135deg, var(--pink), var(--yellow));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1.2;
 }
-.header p {
-  font-size: clamp(0.82rem, 3vw, 0.98rem);
-  color: rgba(255,255,255,0.65);
-  margin-top: 5px;
-  font-style: italic;
-}
+.header p { font-size: clamp(0.82rem,3vw,0.98rem); color: rgba(255,255,255,0.65); margin-top: 5px; font-style: italic; }
 
 .stress-section { padding: 14px 20px 0; max-width: 500px; margin: 0 auto; }
-.stress-label {
-  display: flex; justify-content: space-between;
-  font-size: 0.85rem; margin-bottom: 6px;
-  color: rgba(255,255,255,0.8); font-weight: 700;
-}
-.stress-bar-wrap {
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px; height: 24px; overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.15);
-}
-.stress-bar {
-  height: 100%; border-radius: 20px;
-  background: linear-gradient(90deg, var(--red), #ff6348);
-  transition: width 0.4s ease, background 0.6s ease;
-  position: relative;
-}
-.stress-bar::after {
-  content: '';
-  position: absolute;
-  top: 4px; left: 8px; right: 8px;
-  height: 6px;
-  background: rgba(255,255,255,0.25);
-  border-radius: 10px;
-}
+.stress-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; color: rgba(255,255,255,0.8); font-weight: 700; }
+.stress-bar-wrap { background: rgba(255,255,255,0.1); border-radius: 20px; height: 24px; overflow: hidden; border: 2px solid rgba(255,255,255,0.15); }
+.stress-bar { height: 100%; border-radius: 20px; background: linear-gradient(90deg,var(--red),#ff6348); transition: width 0.4s ease, background 0.6s ease; position: relative; }
+.stress-bar::after { content: ''; position: absolute; top: 4px; left: 8px; right: 8px; height: 6px; background: rgba(255,255,255,0.25); border-radius: 10px; }
 
-.stats-row {
-  display: flex; justify-content: center;
-  gap: 12px; padding: 10px 20px 0;
-  max-width: 500px; margin: 0 auto; flex-wrap: wrap;
-}
-.stat-box {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 14px; padding: 7px 16px;
-  text-align: center; min-width: 85px;
-}
-.stat-box .num {
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.45rem; color: var(--yellow); line-height: 1;
-}
-.stat-box .lbl {
-  font-size: 0.68rem; color: rgba(255,255,255,0.55);
-  text-transform: uppercase; letter-spacing: 1px;
-}
+.stats-row { display: flex; justify-content: center; gap: 12px; padding: 10px 20px 0; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+.stat-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 7px 16px; text-align: center; min-width: 85px; }
+.stat-box .num { font-family: 'Fredoka One', cursive; font-size: 1.45rem; color: var(--yellow); line-height: 1; }
+.stat-box .lbl { font-size: 0.68rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
 
-#combo-banner {
-  text-align: center; height: 34px;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.35rem; color: var(--yellow);
-  opacity: 0; transition: opacity 0.2s;
-  text-shadow: 0 0 20px rgba(255,217,61,0.9);
-  margin-top: 4px;
-}
+#combo-banner { text-align: center; height: 34px; font-family: 'Fredoka One', cursive; font-size: 1.35rem; color: var(--yellow); opacity: 0; transition: opacity 0.2s; text-shadow: 0 0 20px rgba(255,217,61,0.9); margin-top: 4px; }
 #combo-banner.show { opacity: 1; }
 
-.arena {
-  display: flex; justify-content: center;
-  align-items: flex-end;
-  gap: clamp(24px, 8vw, 70px);
-  padding: 8px 20px 0;
-  max-width: 600px; margin: 0 auto;
-}
+.arena { display: flex; justify-content: center; align-items: flex-end; gap: clamp(24px,8vw,70px); padding: 8px 20px 0; max-width: 600px; margin: 0 auto; }
 
-.character-wrap {
-  display: flex; flex-direction: column;
-  align-items: center; cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-}
-.char-name-tag {
-  font-family: 'Fredoka One', cursive;
-  font-size: 0.82rem;
-  background: rgba(255,71,87,0.85);
-  padding: 3px 12px; border-radius: 20px;
-  margin-bottom: 5px; white-space: nowrap;
-}
+.character-wrap { display: flex; flex-direction: column; align-items: center; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; position: relative; }
+.char-name-tag { font-family: 'Fredoka One', cursive; font-size: 0.82rem; background: rgba(255,71,87,0.85); padding: 3px 12px; border-radius: 20px; margin-bottom: 5px; white-space: nowrap; }
 
-/* SPEECH BUBBLE — key fix: never auto-hide via CSS, always JS controlled */
+/* ── BUBBLE: always visible until next tap ── */
 .speech-bubble {
-  position: absolute;
-  top: -8px; left: 50%;
+  position: absolute; top: -8px; left: 50%;
   transform: translateX(-50%) scale(0);
   background: white; color: #222;
-  font-size: 0.68rem; font-weight: 700;
-  padding: 5px 9px; border-radius: 10px;
-  white-space: normal; max-width: 140px;
+  font-size: 0.7rem; font-weight: 700;
+  padding: 6px 10px; border-radius: 10px;
+  white-space: normal; max-width: 145px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 20;
-  transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
-  pointer-events: none; line-height: 1.3;
-  /* min height so it doesn't collapse */
-  min-height: 28px;
+  transition: transform 0.18s cubic-bezier(.34,1.56,.64,1);
+  pointer-events: none; line-height: 1.35;
+  min-height: 30px;
   display: flex; align-items: center; justify-content: center;
 }
-.speech-bubble::after {
-  content: '';
-  position: absolute; bottom: -7px; left: 50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-top-color: white; border-bottom: none;
-}
+.speech-bubble::after { content: ''; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: white; border-bottom: none; }
+/* scale in = show, scale out = hide — no opacity tricks */
 .speech-bubble.show { transform: translateX(-50%) scale(1); }
 
-.stars {
-  position: absolute; top: -16px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; gap: 3px;
-  opacity: 0; transition: opacity 0.2s;
-  pointer-events: none;
-}
+.stars { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); display: flex; gap: 3px; opacity: 0; pointer-events: none; transition: opacity 0.15s; }
 .stars.show { opacity: 1; }
 .star { font-size: 0.95rem; animation: spinStar 0.6s linear infinite; }
 .star:nth-child(2) { animation-delay: 0.2s; }
 .star:nth-child(3) { animation-delay: 0.4s; }
-@keyframes spinStar {
-  0% { transform: rotate(0) translateY(0); }
-  50% { transform: rotate(180deg) translateY(-4px); }
-  100% { transform: rotate(360deg) translateY(0); }
-}
+@keyframes spinStar { 0%{transform:rotate(0) translateY(0);} 50%{transform:rotate(180deg) translateY(-4px);} 100%{transform:rotate(360deg) translateY(0);} }
 
-.head {
-  width: 62px; height: 58px;
-  background: var(--skin);
-  border-radius: 50% 50% 45% 45%;
-  margin: 0 auto; position: relative;
-  border: 2px solid rgba(0,0,0,0.13);
-  overflow: visible;
-}
-.hair {
-  position: absolute; top: -9px; left: -3px; right: -3px;
-  height: 22px; background: #2c1810;
-  border-radius: 50% 50% 0 0; z-index: 1;
-}
-.hair.evil::before, .hair.evil::after {
-  content: ''; position: absolute; top: -9px;
-  width: 10px; height: 14px; background: #8b0000;
-  clip-path: polygon(50% 0%,0% 100%,100% 100%);
-}
-.hair.evil::before { left: 8px; }
-.hair.evil::after { right: 8px; }
+.head { width: 62px; height: 58px; background: var(--skin); border-radius: 50% 50% 45% 45%; margin: 0 auto; position: relative; border: 2px solid rgba(0,0,0,0.13); overflow: visible; }
+.hair { position: absolute; top: -9px; left: -3px; right: -3px; height: 22px; background: #2c1810; border-radius: 50% 50% 0 0; z-index: 1; }
+.hair.evil::before,.hair.evil::after { content:''; position:absolute; top:-9px; width:10px; height:14px; background:#8b0000; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+.hair.evil::before { left: 8px; } .hair.evil::after { right: 8px; }
 
-.eyes {
-  position: absolute; top: 18px; left: 0; right: 0;
-  display: flex; justify-content: center; gap: 10px; z-index: 2;
-}
-.eye {
-  width: 12px; height: 12px; background: white;
-  border-radius: 50%; position: relative; border: 1.5px solid #333;
-}
-.eye::after {
-  content: ''; position: absolute;
-  width: 6px; height: 6px; background: #1a1a2e;
-  border-radius: 50%; top: 2px; left: 2px;
-}
+.eyes { position: absolute; top: 18px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 2; }
+.eye { width: 12px; height: 12px; background: white; border-radius: 50%; position: relative; border: 1.5px solid #333; }
+.eye::after { content:''; position:absolute; width:6px; height:6px; background:#1a1a2e; border-radius:50%; top:2px; left:2px; }
 .eye.evil { border-color: #8b0000; }
-.eye.evil::before {
-  content: ''; position: absolute; top: -3px; left: -1px;
-  width: 14px; height: 5px; background: var(--skin);
-  border-radius: 2px; z-index: 3; transform: rotate(-15deg);
-}
+.eye.evil::before { content:''; position:absolute; top:-3px; left:-1px; width:14px; height:5px; background:var(--skin); border-radius:2px; z-index:3; transform:rotate(-15deg); }
 .eye.evil.right::before { transform: rotate(15deg); }
-.eye.dizzy::after {
-  content: '×'; font-size: 11px; font-weight: 900;
-  color: #ff4757; background: none;
-  top: -2px; left: 0; width: auto; height: auto; border-radius: 0;
-}
+.eye.dizzy::after { content:'×'; font-size:11px; font-weight:900; color:#ff4757; background:none; top:-2px; left:0; width:auto; height:auto; border-radius:0; }
 
 .mouth { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 2; }
-.mouth-smug {
-  width: 22px; height: 8px;
-  border: 2.5px solid #8b4513;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  transform: rotate(10deg);
-}
-.mouth-scared {
-  width: 18px; height: 10px;
-  border: 2.5px solid #8b4513;
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  display: none;
-}
+.mouth-smug { width:22px; height:8px; border:2.5px solid #8b4513; border-top:none; border-radius:0 0 10px 10px; transform:rotate(10deg); }
+.mouth-scared { width:18px; height:10px; border:2.5px solid #8b4513; border-bottom:none; border-radius:10px 10px 0 0; display:none; }
 
-.neck { width: 18px; height: 8px; background: var(--skin); margin: 0 auto; }
-
-.body {
-  width: 72px; height: 70px; margin: 0 auto;
-  position: relative; border-radius: 8px 8px 4px 4px; overflow: hidden;
-}
+.neck { width:18px; height:8px; background:var(--skin); margin:0 auto; }
+.body { width:72px; height:70px; margin:0 auto; position:relative; border-radius:8px 8px 4px 4px; overflow:hidden; }
 .body-inner {
-  position: absolute; inset: 0;
+  position:absolute; inset:0;
   background:
-    radial-gradient(ellipse 18px 12px at 20% 30%, var(--camo4) 80%, transparent 100%),
-    radial-gradient(ellipse 14px 18px at 70% 20%, var(--camo4) 80%, transparent 100%),
-    radial-gradient(ellipse 20px 10px at 50% 60%, var(--camo4) 80%, transparent 100%),
-    radial-gradient(ellipse 10px 14px at 85% 70%, var(--camo4) 80%, transparent 100%),
-    radial-gradient(ellipse 16px 10px at 15% 75%, var(--camo3) 80%, transparent 100%),
-    radial-gradient(ellipse 22px 14px at 55% 35%, var(--camo3) 80%, transparent 100%),
+    radial-gradient(ellipse 18px 12px at 20% 30%,var(--camo4) 80%,transparent 100%),
+    radial-gradient(ellipse 14px 18px at 70% 20%,var(--camo4) 80%,transparent 100%),
+    radial-gradient(ellipse 20px 10px at 50% 60%,var(--camo4) 80%,transparent 100%),
+    radial-gradient(ellipse 10px 14px at 85% 70%,var(--camo4) 80%,transparent 100%),
+    radial-gradient(ellipse 16px 10px at 15% 75%,var(--camo3) 80%,transparent 100%),
+    radial-gradient(ellipse 22px 14px at 55% 35%,var(--camo3) 80%,transparent 100%),
     var(--camo2);
-  border-radius: 8px 8px 4px 4px;
+  border-radius:8px 8px 4px 4px;
 }
-.collar {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 0; height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 18px solid var(--camo1); z-index: 2;
-}
-.badge {
-  position: absolute; top: 6px;
-  width: 14px; height: 8px;
-  background: #1a1a1a; border-radius: 2px; z-index: 3;
-}
-.badge.left { left: 4px; }
-.badge.right { right: 4px; }
-.badge::after { content: '★'; font-size: 6px; color: var(--yellow); position: absolute; top: 0; left: 2px; }
-
-.belt { width: 72px; height: 10px; background: #1a1a1a; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
-.belt-buckle { width: 14px; height: 8px; background: #888; border-radius: 2px; border: 1px solid #555; }
-
-.legs { width: 72px; margin: 0 auto; display: flex; gap: 4px; }
-.leg { flex: 1; height: 52px; position: relative; overflow: hidden; border-radius: 0 0 4px 4px; }
-.leg-inner {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 10px 14px at 30% 40%, var(--camo4) 80%, transparent 100%),
-    radial-gradient(ellipse 8px 10px at 70% 65%, var(--camo4) 80%, transparent 100%),
-    var(--camo2);
-}
-
-.boots { width: 72px; margin: 0 auto; display: flex; gap: 4px; }
-.boot { flex: 1; height: 13px; background: #1a1a1a; border-radius: 2px 2px 4px 4px; }
-
-.arms {
-  position: absolute; top: 60px; left: -16px; right: -16px;
-  display: flex; justify-content: space-between; pointer-events: none;
-}
-.arm { width: 16px; height: 44px; position: relative; overflow: hidden; border-radius: 4px; }
-.arm-inner {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 8px 12px at 40% 50%, var(--camo4) 80%, transparent 100%),
-    var(--camo2);
-}
-.hand { width: 16px; height: 13px; background: var(--skin); border-radius: 4px; margin-top: -2px; }
+.collar { position:absolute; top:0; left:50%; transform:translateX(-50%); width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-top:18px solid var(--camo1); z-index:2; }
+.badge { position:absolute; top:6px; width:14px; height:8px; background:#1a1a1a; border-radius:2px; z-index:3; }
+.badge.left{left:4px;} .badge.right{right:4px;}
+.badge::after { content:'★'; font-size:6px; color:var(--yellow); position:absolute; top:0; left:2px; }
+.belt { width:72px; height:10px; background:#1a1a1a; margin:0 auto; display:flex; align-items:center; justify-content:center; }
+.belt-buckle { width:14px; height:8px; background:#888; border-radius:2px; border:1px solid #555; }
+.legs { width:72px; margin:0 auto; display:flex; gap:4px; }
+.leg { flex:1; height:52px; position:relative; overflow:hidden; border-radius:0 0 4px 4px; }
+.leg-inner { position:absolute; inset:0; background: radial-gradient(ellipse 10px 14px at 30% 40%,var(--camo4) 80%,transparent 100%), radial-gradient(ellipse 8px 10px at 70% 65%,var(--camo4) 80%,transparent 100%), var(--camo2); }
+.boots { width:72px; margin:0 auto; display:flex; gap:4px; }
+.boot { flex:1; height:13px; background:#1a1a1a; border-radius:2px 2px 4px 4px; }
+.arms { position:absolute; top:60px; left:-16px; right:-16px; display:flex; justify-content:space-between; pointer-events:none; }
+.arm { width:16px; height:44px; position:relative; overflow:hidden; border-radius:4px; }
+.arm-inner { position:absolute; inset:0; background: radial-gradient(ellipse 8px 12px at 40% 50%,var(--camo4) 80%,transparent 100%), var(--camo2); }
+.hand { width:16px; height:13px; background:var(--skin); border-radius:4px; margin-top:-2px; }
 
 @keyframes bonkChar {
-  0%   { transform: translateY(0) rotate(0) scale(1); }
-  15%  { transform: translateY(-16px) rotate(-6deg) scale(1.05); }
-  35%  { transform: translateY(5px) rotate(4deg) scale(0.97); }
-  55%  { transform: translateY(-8px) rotate(-3deg) scale(1.02); }
-  75%  { transform: translateY(3px) rotate(2deg) scale(0.99); }
-  100% { transform: translateY(0) rotate(0) scale(1); }
+  0%{transform:translateY(0) rotate(0) scale(1);}
+  15%{transform:translateY(-16px) rotate(-6deg) scale(1.05);}
+  35%{transform:translateY(5px) rotate(4deg) scale(0.97);}
+  55%{transform:translateY(-8px) rotate(-3deg) scale(1.02);}
+  75%{transform:translateY(3px) rotate(2deg) scale(0.99);}
+  100%{transform:translateY(0) rotate(0) scale(1);}
 }
 .character.bonking { animation: bonkChar 0.45s ease; }
-
 @keyframes scaredShake {
-  0%,100% { transform: translateX(0); }
-  20% { transform: translateX(-4px); }
-  40% { transform: translateX(4px); }
-  60% { transform: translateX(-3px); }
-  80% { transform: translateX(3px); }
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-4px);}
+  40%{transform:translateX(4px);}
+  60%{transform:translateX(-3px);}
+  80%{transform:translateX(3px);}
 }
 .character.scared { animation: scaredShake 0.3s ease; }
 
 .hammer-wrap { text-align: center; padding: 8px 0 2px; }
-.hammer-emoji {
-  font-size: clamp(2.4rem, 9vw, 3.8rem);
-  display: inline-block;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-  animation: hammerIdle 2s ease-in-out infinite;
-}
-@keyframes hammerIdle {
-  0%,100% { transform: rotate(-15deg); }
-  50% { transform: rotate(5deg); }
-}
-.hammer-hint { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.hammer-emoji { font-size:clamp(2.4rem,9vw,3.8rem); display:inline-block; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4)); animation:hammerIdle 2s ease-in-out infinite; }
+@keyframes hammerIdle { 0%,100%{transform:rotate(-15deg);} 50%{transform:rotate(5deg);} }
+.hammer-hint { font-size:0.72rem; color:rgba(255,255,255,0.45); margin-top:2px; }
 
-.float-text {
-  position: fixed;
-  font-family: 'Fredoka One', cursive;
-  font-size: clamp(1.3rem, 5.5vw, 2rem);
-  pointer-events: none; z-index: 999;
-  animation: floatUp 0.95s ease forwards;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-@keyframes floatUp {
-  0%   { transform: translateY(0) scale(0.5) rotate(-5deg); opacity: 1; }
-  40%  { transform: translateY(-45px) scale(1.25) rotate(3deg); opacity: 1; }
-  100% { transform: translateY(-95px) scale(0.8) rotate(-2deg); opacity: 0; }
-}
+.float-text { position:fixed; font-family:'Fredoka One',cursive; font-size:clamp(1.3rem,5.5vw,2rem); pointer-events:none; z-index:999; animation:floatUp 0.95s ease forwards; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+@keyframes floatUp { 0%{transform:translateY(0) scale(0.5) rotate(-5deg);opacity:1;} 40%{transform:translateY(-45px) scale(1.25) rotate(3deg);opacity:1;} 100%{transform:translateY(-95px) scale(0.8) rotate(-2deg);opacity:0;} }
 
-.bottom-section {
-  max-width: 500px; margin: 10px auto 0;
-  padding: 0 20px 30px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.btn-love-msg {
-  padding: 13px; border: none; border-radius: 50px;
-  background: linear-gradient(135deg, #fd79a8, #e84393);
-  color: white; font-family: 'Fredoka One', cursive;
-  font-size: 1rem; cursor: pointer;
-  box-shadow: 0 4px 20px rgba(253,121,168,0.4);
-  transition: transform 0.15s; letter-spacing: 0.5px;
-}
-.btn-love-msg:active { transform: scale(0.96); }
-.btn-reset {
-  padding: 11px; border: 2px solid rgba(255,255,255,0.18);
-  border-radius: 50px; background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.65); font-family: 'Fredoka One', cursive;
-  font-size: 0.95rem; cursor: pointer; transition: transform 0.15s;
-}
-.btn-reset:active { transform: scale(0.96); }
+.bottom-section { max-width:500px; margin:10px auto 0; padding:0 20px 30px; display:flex; flex-direction:column; gap:10px; }
+.btn-love-msg { padding:13px; border:none; border-radius:50px; background:linear-gradient(135deg,#fd79a8,#e84393); color:white; font-family:'Fredoka One',cursive; font-size:1rem; cursor:pointer; box-shadow:0 4px 20px rgba(253,121,168,0.4); transition:transform 0.15s; }
+.btn-love-msg:active{transform:scale(0.96);}
+.btn-reset { padding:11px; border:2px solid rgba(255,255,255,0.18); border-radius:50px; background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.65); font-family:'Fredoka One',cursive; font-size:0.95rem; cursor:pointer; transition:transform 0.15s; }
+.btn-reset:active{transform:scale(0.96);}
 
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.78);
-  z-index: 100; display: flex; align-items: center;
-  justify-content: center; padding: 24px;
-  opacity: 0; pointer-events: none; transition: opacity 0.3s;
-  backdrop-filter: blur(6px);
-}
-.modal-overlay.show { opacity: 1; pointer-events: all; }
-.modal-box {
-  background: linear-gradient(135deg, #2d1b4e, #1a1a3e);
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 24px; padding: 30px 22px;
-  max-width: 360px; width: 100%; text-align: center;
-  transform: scale(0.85);
-  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-.modal-overlay.show .modal-box { transform: scale(1); }
-.modal-box h2 { font-family: 'Fredoka One', cursive; font-size: 1.55rem; color: var(--pink); margin-bottom: 14px; }
-.modal-box p { font-size: 0.92rem; line-height: 1.75; color: rgba(255,255,255,0.85); }
-.modal-box .close-btn {
-  margin-top: 20px; padding: 11px 34px; border: none;
-  border-radius: 50px; background: linear-gradient(135deg, var(--pink), #c0392b);
-  color: white; font-family: 'Fredoka One', cursive;
-  font-size: 1rem; cursor: pointer; transition: transform 0.15s;
-}
-.modal-box .close-btn:active { transform: scale(0.96); }
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.78); z-index:100; display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; pointer-events:none; transition:opacity 0.3s; backdrop-filter:blur(6px); }
+.modal-overlay.show{opacity:1;pointer-events:all;}
+.modal-box { background:linear-gradient(135deg,#2d1b4e,#1a1a3e); border:1px solid rgba(255,255,255,0.13); border-radius:24px; padding:30px 22px; max-width:360px; width:100%; text-align:center; transform:scale(0.85); transition:transform 0.3s cubic-bezier(.34,1.56,.64,1); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+.modal-overlay.show .modal-box{transform:scale(1);}
+.modal-box h2{font-family:'Fredoka One',cursive;font-size:1.55rem;color:var(--pink);margin-bottom:14px;}
+.modal-box p{font-size:0.92rem;line-height:1.75;color:rgba(255,255,255,0.85);}
+.modal-box .close-btn{margin-top:20px;padding:11px 34px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--pink),#c0392b);color:white;font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;transition:transform 0.15s;}
+.modal-box .close-btn:active{transform:scale(0.96);}
 
-.victory-overlay {
-  position: fixed; inset: 0;
-  background: linear-gradient(135deg, rgba(20,0,40,0.97), rgba(10,0,30,0.97));
-  z-index: 200; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 30px; text-align: center;
-  opacity: 0; pointer-events: none; transition: opacity 0.6s;
-}
-.victory-overlay.show { opacity: 1; pointer-events: all; }
-.victory-overlay h1 {
-  font-family: 'Fredoka One', cursive;
-  font-size: clamp(2rem, 8vw, 3.2rem);
-  background: linear-gradient(135deg, var(--yellow), var(--pink));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; margin-bottom: 14px;
-}
-.victory-overlay p {
-  font-size: clamp(0.9rem, 3.2vw, 1.1rem);
-  line-height: 1.85; color: rgba(255,255,255,0.9); max-width: 340px;
-}
-.victory-overlay .sub {
-  font-size: clamp(0.78rem, 2.8vw, 0.95rem);
-  color: var(--pink); margin-top: 10px; font-style: italic;
-}
-#confetti-canvas { position: fixed; inset: 0; z-index: 199; pointer-events: none; }
-.victory-overlay .restart-btn {
-  margin-top: 26px; padding: 13px 34px; border: none;
-  border-radius: 50px;
-  background: linear-gradient(135deg, var(--yellow), #f39c12);
-  color: #1a1a2e; font-family: 'Fredoka One', cursive;
-  font-size: 1.05rem; cursor: pointer;
-  box-shadow: 0 4px 20px rgba(255,217,61,0.4); transition: transform 0.15s;
-}
-.victory-overlay .restart-btn:active { transform: scale(0.96); }
+.victory-overlay { position:fixed; inset:0; background:linear-gradient(135deg,rgba(20,0,40,0.97),rgba(10,0,30,0.97)); z-index:200; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:30px; text-align:center; opacity:0; pointer-events:none; transition:opacity 0.6s; }
+.victory-overlay.show{opacity:1;pointer-events:all;}
+.victory-overlay h1 { font-family:'Fredoka One',cursive; font-size:clamp(2rem,8vw,3.2rem); background:linear-gradient(135deg,var(--yellow),var(--pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:14px; }
+.victory-overlay p{font-size:clamp(0.9rem,3.2vw,1.1rem);line-height:1.85;color:rgba(255,255,255,0.9);max-width:340px;}
+.victory-overlay .sub{font-size:clamp(0.78rem,2.8vw,0.95rem);color:var(--pink);margin-top:10px;font-style:italic;}
+#confetti-canvas{position:fixed;inset:0;z-index:199;pointer-events:none;}
+.victory-overlay .restart-btn{margin-top:26px;padding:13px 34px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--yellow),#f39c12);color:#1a1a2e;font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;box-shadow:0 4px 20px rgba(255,217,61,0.4);transition:transform 0.15s;}
+.victory-overlay .restart-btn:active{transform:scale(0.96);}
 
-#streak-badge {
-  position: fixed; top: 16px; right: 16px;
-  background: linear-gradient(135deg, #ff4757, #c0392b);
-  color: white; font-family: 'Fredoka One', cursive;
-  font-size: 0.85rem; padding: 6px 14px;
-  border-radius: 20px; z-index: 50;
-  opacity: 0; transition: opacity 0.3s;
-  box-shadow: 0 4px 14px rgba(255,71,87,0.4);
-}
-#streak-badge.show { opacity: 1; }
+#streak-badge { position:fixed; top:16px; right:16px; background:linear-gradient(135deg,#ff4757,#c0392b); color:white; font-family:'Fredoka One',cursive; font-size:0.85rem; padding:6px 14px; border-radius:20px; z-index:50; opacity:0; transition:opacity 0.3s; box-shadow:0 4px 14px rgba(255,71,87,0.4); }
+#streak-badge.show{opacity:1;}
 </style>
 </head>
 <body>
 
-<!-- Preload bonk audio buffer — cloned on each tap for overlap -->
-<audio id="snd-bonk-src" src="bonk.mp3" preload="auto" style="display:none"></audio>
 <audio id="snd-win" src="victory.mp3" preload="auto" style="display:none"></audio>
 <canvas id="confetti-canvas"></canvas>
-
 <div id="streak-badge">🔥 <span id="streak-num">0</span> Streak!</div>
 
-<!-- VICTORY -->
 <div class="victory-overlay" id="victory">
   <div style="font-size:3rem;margin-bottom:10px;">🏆✨</div>
   <h1>Stress = 0%! 🎉</h1>
@@ -466,7 +197,6 @@ body.shake { animation: screenShake 0.35s ease; }
   <button class="restart-btn" onclick="resetGame()">Bonk them again? 🔨😂</button>
 </div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="love-modal">
   <div class="modal-box">
     <h2>💌 For You</h2>
@@ -481,112 +211,62 @@ body.shake { animation: screenShake 0.35s ease; }
 </div>
 
 <div class="stress-section">
-  <div class="stress-label">
-    <span>😤 Stress Level</span>
-    <span id="stress-pct">100%</span>
-  </div>
-  <div class="stress-bar-wrap">
-    <div class="stress-bar" id="stress-bar"></div>
-  </div>
+  <div class="stress-label"><span>😤 Stress Level</span><span id="stress-pct">100%</span></div>
+  <div class="stress-bar-wrap"><div class="stress-bar" id="stress-bar"></div></div>
 </div>
 
 <div class="stats-row">
-  <div class="stat-box">
-    <div class="num" id="total-bonks">0</div>
-    <div class="lbl">Total Bonks</div>
-  </div>
-  <div class="stat-box">
-    <div class="num" id="combo-count">x1</div>
-    <div class="lbl">Combo</div>
-  </div>
-  <div class="stat-box">
-    <div class="num" id="stress-gone">0%</div>
-    <div class="lbl">Stress Gone</div>
-  </div>
+  <div class="stat-box"><div class="num" id="total-bonks">0</div><div class="lbl">Total Bonks</div></div>
+  <div class="stat-box"><div class="num" id="combo-count">x1</div><div class="lbl">Combo</div></div>
+  <div class="stat-box"><div class="num" id="stress-gone">0%</div><div class="lbl">Stress Gone</div></div>
 </div>
 
 <div id="combo-banner">🔥 COMBO x<span id="combo-num">1</span>!</div>
 
 <div class="arena">
 
-  <!-- Commander -->
-  <div class="character-wrap" onclick="bonk(this,0)" id="char-0">
+  <div class="character-wrap" id="char-0" onclick="bonk(this,0)">
     <div class="speech-bubble" id="bubble-0"></div>
     <div class="char-name-tag">😈 Commander</div>
-    <div class="stars" id="stars-0">
-      <span class="star">⭐</span><span class="star">💫</span><span class="star">⭐</span>
-    </div>
+    <div class="stars" id="stars-0"><span class="star">⭐</span><span class="star">💫</span><span class="star">⭐</span></div>
     <div class="character" id="body-0">
-      <div class="head" id="head-0">
-        <div class="hair evil"></div>
-        <div class="eyes">
-          <div class="eye evil" id="eye-l-0"></div>
-          <div class="eye evil right" id="eye-r-0"></div>
-        </div>
-        <div class="mouth">
-          <div class="mouth-smug" id="mouth-smug-0"></div>
-          <div class="mouth-scared" id="mouth-scared-0"></div>
-        </div>
+      <div class="head"><div class="hair evil"></div>
+        <div class="eyes"><div class="eye evil" id="eye-l-0"></div><div class="eye evil right" id="eye-r-0"></div></div>
+        <div class="mouth"><div class="mouth-smug" id="mouth-smug-0"></div><div class="mouth-scared" id="mouth-scared-0"></div></div>
       </div>
       <div class="neck"></div>
       <div style="position:relative">
-        <div class="body">
-          <div class="body-inner"></div>
-          <div class="collar"></div>
-          <div class="badge left"></div>
-          <div class="badge right"></div>
-        </div>
+        <div class="body"><div class="body-inner"></div><div class="collar"></div><div class="badge left"></div><div class="badge right"></div></div>
         <div class="arms">
           <div><div class="arm"><div class="arm-inner"></div></div><div class="hand"></div></div>
           <div><div class="arm"><div class="arm-inner"></div></div><div class="hand"></div></div>
         </div>
       </div>
       <div class="belt"><div class="belt-buckle"></div></div>
-      <div class="legs">
-        <div class="leg"><div class="leg-inner"></div></div>
-        <div class="leg"><div class="leg-inner"></div></div>
-      </div>
+      <div class="legs"><div class="leg"><div class="leg-inner"></div></div><div class="leg"><div class="leg-inner"></div></div></div>
       <div class="boots"><div class="boot"></div><div class="boot"></div></div>
     </div>
   </div>
 
-  <!-- The Person You Hate -->
-  <div class="character-wrap" onclick="bonk(this,1)" id="char-1">
+  <div class="character-wrap" id="char-1" onclick="bonk(this,1)">
     <div class="speech-bubble" id="bubble-1"></div>
     <div class="char-name-tag">👺 The Person You Hate</div>
-    <div class="stars" id="stars-1">
-      <span class="star">⭐</span><span class="star">💫</span><span class="star">⭐</span>
-    </div>
+    <div class="stars" id="stars-1"><span class="star">⭐</span><span class="star">💫</span><span class="star">⭐</span></div>
     <div class="character" id="body-1">
-      <div class="head" id="head-1">
-        <div class="hair evil"></div>
-        <div class="eyes">
-          <div class="eye evil" id="eye-l-1"></div>
-          <div class="eye evil right" id="eye-r-1"></div>
-        </div>
-        <div class="mouth">
-          <div class="mouth-smug" id="mouth-smug-1"></div>
-          <div class="mouth-scared" id="mouth-scared-1"></div>
-        </div>
+      <div class="head"><div class="hair evil"></div>
+        <div class="eyes"><div class="eye evil" id="eye-l-1"></div><div class="eye evil right" id="eye-r-1"></div></div>
+        <div class="mouth"><div class="mouth-smug" id="mouth-smug-1"></div><div class="mouth-scared" id="mouth-scared-1"></div></div>
       </div>
       <div class="neck"></div>
       <div style="position:relative">
-        <div class="body">
-          <div class="body-inner"></div>
-          <div class="collar"></div>
-          <div class="badge left"></div>
-          <div class="badge right"></div>
-        </div>
+        <div class="body"><div class="body-inner"></div><div class="collar"></div><div class="badge left"></div><div class="badge right"></div></div>
         <div class="arms">
           <div><div class="arm"><div class="arm-inner"></div></div><div class="hand"></div></div>
           <div><div class="arm"><div class="arm-inner"></div></div><div class="hand"></div></div>
         </div>
       </div>
       <div class="belt"><div class="belt-buckle"></div></div>
-      <div class="legs">
-        <div class="leg"><div class="leg-inner"></div></div>
-        <div class="leg"><div class="leg-inner"></div></div>
-      </div>
+      <div class="legs"><div class="leg"><div class="leg-inner"></div></div><div class="leg"><div class="leg-inner"></div></div></div>
       <div class="boots"><div class="boot"></div><div class="boot"></div></div>
     </div>
   </div>
@@ -604,6 +284,44 @@ body.shake { animation: screenShake 0.35s ease; }
 </div>
 
 <script>
+// ── AUDIO CONTEXT — the only reliable way for rapid sounds ──
+let audioCtx = null;
+let bonkBuffer = null;
+
+async function initAudio() {
+  if (audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  try {
+    const res = await fetch('bonk.mp3');
+    const arr = await res.arrayBuffer();
+    bonkBuffer = await audioCtx.decodeAudioData(arr);
+  } catch(e) {
+    console.warn('Audio load failed:', e);
+  }
+}
+
+function playBonk() {
+  if (!audioCtx || !bonkBuffer) return;
+  // Each call creates a brand new source node — zero interference
+  const src = audioCtx.createBufferSource();
+  src.buffer = bonkBuffer;
+  const gain = audioCtx.createGain();
+  gain.gain.value = 0.9;
+  src.connect(gain);
+  gain.connect(audioCtx.destination);
+  src.start(0);
+  // src auto-disconnects when done, no cleanup needed
+}
+
+function playWin() {
+  const s = document.getElementById('snd-win');
+  if (!s) return;
+  s.currentTime = 0;
+  s.volume = 0.9;
+  s.play().catch(()=>{});
+}
+
+// ── DIALOGUES ──
 const DIALOGUES = [
   [
     "How dare you hit me!! 😤",
@@ -612,7 +330,7 @@ const DIALOGUES = [
     "This is disrespectful!! 😤",
     "You'll regret this!! 👊",
     "Ayoo adikura kapathungaaa 😱",
-    "Ow ow ow!! That actually hurt!! 😣",
+    "Ow ow!! That actually hurt!! 😣",
     "H-hey stop it!! 😰",
     "W-wait wait wait!! 😨",
     "Engala vittru!! 😭",
@@ -637,7 +355,7 @@ const DIALOGUES = [
     "FINE YOU WIN!! 😵",
     "Please I have feelings too!! 😭",
     "Ayoo stop stop STOP!! 😭🙏",
-    "Okay okay I'll leave you alone FOREVER!! 🙏😭",
+    "Okay I'll leave you alone FOREVER!! 🙏😭",
   ]
 ];
 
@@ -649,52 +367,21 @@ const TANGLISH = [
   "please vittruuuu 🙏😭"
 ];
 
-const BONK_WORDS = [
-  'BONK! 💥','WHAM! 🌟','POW! ⚡','SMACK! 💫',
-  'THWACK! 🔨','ZAP! ✨','BOOM! 💢','WHACK! 🎯',
-  'KAPOW! 🔥','CRACK! ⭐','BLAM! 🌈','DONK! 😵'
-];
+const BONK_WORDS = ['BONK! 💥','WHAM! 🌟','POW! ⚡','SMACK! 💫','THWACK! 🔨','ZAP! ✨','BOOM! 💢','WHACK! 🎯','KAPOW! 🔥','CRACK! ⭐','BLAM! 🌈','DONK! 😵'];
 
 const LOVE_MESSAGES = [
-  {
-    msg:`Hey you... 🌸<br><br>I know today was really tough.<br>I know they made it harder than it should be.<br>But look at you — still standing, still fighting. 💪<br><br>That's not just strength. That's YOU.<br>And I'm so incredibly proud of you. ❤️<br><br>Now go bonk them one more time for me. 😄`,
-    sub:`— Your person, always in your corner 🫶`
-  },
-  {
-    msg:`I see you. Every single day. 🌙<br><br>The way you show up even when it's hard.<br>The way you smile even when they're awful.<br>The way you keep going when you could give up.<br><br>That's why I care about you so much. 💕<br><br>You're not alone. Not even for a second. ❤️<br><br>Now go get them! 😂🔨`,
-    sub:`— Someone who thinks you're absolutely amazing 🌟`
-  },
-  {
-    msg:`Listen to me for a second... 💌<br><br>No commander. No one you hate.<br>Nobody in this world has the right to make you feel small.<br><br>Because you? You're enormous. 🌟<br>Bigger than all of them combined.<br><br>I'm here. Always. 💕<br><br>Okay now go bonk them harder! 🔨😂`,
-    sub:`— Your biggest fan, forever 🫶`
-  },
-  {
-    msg:`You know what I love about you? 💕<br><br>You could've given up a hundred times.<br>But you didn't. You never do.<br><br>That's the kind of person you are —<br>stronger than you even know. 💪✨<br><br>I'm so proud to have you in my life. ❤️<br><br>Now make them regret everything! 😄🔨`,
-    sub:`— Yours, rooting for you always 🌸`
-  },
-  {
-    msg:`Hey hey hey 😊<br><br>Come here for a second...<br><br>You did GREAT today. Even on the hard days,<br>you show up and you handle it.<br>That takes more courage than they'll ever understand. 🌟<br><br>I care about you more than words can say. 💕<br><br>Now let's get back to bonking!! 🔨😂`,
-    sub:`— Me, always here for you ❤️`
-  }
+  { msg:`Hey you... 🌸<br><br>I know today was really tough.<br>I know they made it harder than it should be.<br>But look at you — still standing, still fighting. 💪<br><br>That's not just strength. That's YOU.<br>And I'm so incredibly proud of you. ❤️<br><br>Now go bonk them one more time for me. 😄`, sub:`— Your person, always in your corner 🫶` },
+  { msg:`I see you. Every single day. 🌙<br><br>The way you show up even when it's hard.<br>The way you smile even when they're awful.<br>The way you keep going when you could give up.<br><br>That's why I care about you so much. 💕<br><br>You're not alone. Not even for a second. ❤️<br><br>Now go get them! 😂🔨`, sub:`— Someone who thinks you're absolutely amazing 🌟` },
+  { msg:`Listen to me for a second... 💌<br><br>No commander. No one you hate.<br>Nobody in this world has the right to make you feel small.<br><br>Because you? You're enormous. 🌟<br>Bigger than all of them combined.<br><br>I'm here. Always. 💕<br><br>Okay now go bonk them harder! 🔨😂`, sub:`— Your biggest fan, forever 🫶` },
+  { msg:`You know what I love about you? 💕<br><br>You could've given up a hundred times.<br>But you didn't. You never do.<br><br>That's the kind of person you are —<br>stronger than you even know. 💪✨<br><br>I'm so proud to have you in my life. ❤️<br><br>Now make them regret everything! 😄🔨`, sub:`— Yours, rooting for you always 🌸` },
+  { msg:`Hey hey hey 😊<br><br>Come here for a second...<br><br>You did GREAT today. Even on the hard days,<br>you show up and you handle it.<br>That takes more courage than they'll ever understand. 🌟<br><br>I care about you more than words can say. 💕<br><br>Now let's get back to bonking!! 🔨😂`, sub:`— Me, always here for you ❤️` }
 ];
 
 const VICTORY_MESSAGES = [
-  {
-    msg:`You absolutely destroyed them!! 💪<br>Every single bonk — they deserved it.<br>And you? You deserve all the good things in this world. 🌟`,
-    sub:`You're stronger than all of them put together. I love you. ❤️<br>— Your person who's always watching over you 🫶`
-  },
-  {
-    msg:`STRESS = ZERO! 🎉<br>And it's all because of your unstoppable energy! 🔥<br>They never stood a chance against you.`,
-    sub:`I'm so proud of you. Every. Single. Day. 💕<br>— Your forever cheerleader 🌸`
-  },
-  {
-    msg:`You BONKED the stress away!! 😂🔨<br>No commander, no hatred — nothing can stop you.<br>You are literally that girl. 👑`,
-    sub:`Thank you for being you. I care about you so much. ❤️<br>— Someone who loves you endlessly 🫶`
-  },
-  {
-    msg:`VICTORY!! 🏆✨<br>They were no match for your power!<br>You came, you bonked, you conquered. 💪🔥`,
-    sub:`You're my favourite person and I'm so lucky. 💕<br>— Always here, always yours ❤️`
-  }
+  { msg:`You absolutely destroyed them!! 💪<br>Every single bonk — they deserved it.<br>And you? You deserve all the good things in this world. 🌟`, sub:`You're stronger than all of them put together. I love you. ❤️<br>— Your person who's always watching over you 🫶` },
+  { msg:`STRESS = ZERO! 🎉<br>And it's all because of your unstoppable energy! 🔥<br>They never stood a chance against you.`, sub:`I'm so proud of you. Every. Single. Day. 💕<br>— Your forever cheerleader 🌸` },
+  { msg:`You BONKED the stress away!! 😂🔨<br>No commander, no hatred — nothing can stop you.<br>You are literally that girl. 👑`, sub:`Thank you for being you. I care about you so much. ❤️<br>— Someone who loves you endlessly 🫶` },
+  { msg:`VICTORY!! 🏆✨<br>They were no match for your power!<br>You came, you bonked, you conquered. 💪🔥`, sub:`You're my favourite person and I'm so lucky. 💕<br>— Always here, always yours ❤️` }
 ];
 
 // ── STATE ──
@@ -705,45 +392,28 @@ let streak = 0;
 let comboTimer = null;
 let streakTimer = null;
 let bonkCount = [0, 0];
-// Per-character bubble hide timers — KEY FIX
-let bubbleTimers = [null, null];
 
-const MAX_BONKS_TO_WIN = 35;
-const STRESS_PER_BONK = 100 / MAX_BONKS_TO_WIN;
+// Bubble state — no timers, just show on tap, hide on NEXT tap
+let bubbleVisible = [false, false];
+// Auto-hide after long pause — only if no tap in 3s
+let bubbleAutoHide = [null, null];
 
-// ── SOUND: clone audio node so rapid taps never cut off ──
-function playBonk() {
-  const src = document.getElementById('snd-bonk-src');
-  if (!src) return;
-  // Clone the node — each clone plays independently
-  const clone = src.cloneNode();
-  clone.volume = 0.85;
-  clone.play().catch(() => {});
-  // Clean up after it finishes
-  clone.addEventListener('ended', () => clone.remove());
-  document.body.appendChild(clone);
-}
-
-function playWin() {
-  const s = document.getElementById('snd-win');
-  if (!s) return;
-  s.currentTime = 0;
-  s.volume = 0.9;
-  s.play().catch(() => {});
-}
+const MAX_BONKS = 35;
+const STRESS_PER_BONK = 100 / MAX_BONKS;
 
 function bonk(wrap, charIdx) {
   if (stress <= 0) return;
 
-  playBonk(); // cloned — never interrupted
+  // Init audio on first user gesture
+  initAudio();
+  playBonk();
 
   // Screen shake
   document.body.classList.remove('shake');
   void document.body.offsetWidth;
   document.body.classList.add('shake');
-  setTimeout(() => document.body.classList.remove('shake'), 380);
+  setTimeout(()=> document.body.classList.remove('shake'), 380);
 
-  // Stats
   totalBonks++;
   bonkCount[charIdx]++;
   stress = Math.max(0, stress - STRESS_PER_BONK);
@@ -753,10 +423,7 @@ function bonk(wrap, charIdx) {
   // Streak
   streak++;
   clearTimeout(streakTimer);
-  streakTimer = setTimeout(() => {
-    streak = 0;
-    document.getElementById('streak-badge').classList.remove('show');
-  }, 2000);
+  streakTimer = setTimeout(()=>{ streak=0; document.getElementById('streak-badge').classList.remove('show'); }, 2200);
   if (streak >= 3) {
     document.getElementById('streak-num').textContent = streak;
     document.getElementById('streak-badge').classList.add('show');
@@ -765,79 +432,75 @@ function bonk(wrap, charIdx) {
   // Combo
   clearTimeout(comboTimer);
   combo++;
-  comboTimer = setTimeout(() => { combo = 1; }, 1800);
-  document.getElementById('combo-count').textContent = 'x' + combo;
+  comboTimer = setTimeout(()=>{ combo=1; }, 1800);
+  document.getElementById('combo-count').textContent = 'x'+combo;
   if (combo >= 3) showComboBanner(combo);
 
-  // Bonk animation
-  const body = document.getElementById('body-' + charIdx);
-  body.classList.remove('bonking', 'scared');
+  // Bonk anim
+  const body = document.getElementById('body-'+charIdx);
+  body.classList.remove('bonking','scared');
   void body.offsetWidth;
   body.classList.add('bonking');
-  setTimeout(() => body.classList.remove('bonking'), 460);
+  setTimeout(()=> body.classList.remove('bonking'), 460);
 
-  // Face update
   updateFace(charIdx, bonkCount[charIdx]);
 
   // Dizzy eyes
-  const eyeL = document.getElementById('eye-l-' + charIdx);
-  const eyeR = document.getElementById('eye-r-' + charIdx);
-  eyeL.classList.add('dizzy'); eyeR.classList.add('dizzy');
-  setTimeout(() => {
-    eyeL.classList.remove('dizzy'); eyeR.classList.remove('dizzy');
-  }, 650);
+  const eL = document.getElementById('eye-l-'+charIdx);
+  const eR = document.getElementById('eye-r-'+charIdx);
+  eL.classList.add('dizzy'); eR.classList.add('dizzy');
+  setTimeout(()=>{ eL.classList.remove('dizzy'); eR.classList.remove('dizzy'); }, 600);
 
   // Stars
-  const stars = document.getElementById('stars-' + charIdx);
+  const stars = document.getElementById('stars-'+charIdx);
   stars.classList.add('show');
-  setTimeout(() => stars.classList.remove('show'), 750);
+  setTimeout(()=> stars.classList.remove('show'), 700);
 
-  // ── SPEECH BUBBLE FIX ──
-  // Always clear previous hide timer before showing new text
-  const bubble = document.getElementById('bubble-' + charIdx);
-  clearTimeout(bubbleTimers[charIdx]);
+  // ── BUBBLE: show immediately, auto-hide only after 2.5s of no taps ──
+  const bubble = document.getElementById('bubble-'+charIdx);
 
+  // Pick dialogue
   const count = bonkCount[charIdx];
   let pickIdx;
-  if (count <= 4)       pickIdx = (count - 1) % 5;
-  else if (count <= 9)  pickIdx = 5 + ((count - 5) % 5);
-  else                  pickIdx = 10 + ((count - 10) % 5);
+  if (count <= 4)      pickIdx = (count-1) % 5;
+  else if (count <= 9) pickIdx = 5 + ((count-5) % 5);
+  else                 pickIdx = 10 + ((count-10) % 5);
 
-  // Random tanglish sprinkle
   let text;
-  if (Math.random() < 0.28 && count > 3) {
+  if (Math.random() < 0.25 && count > 3) {
     text = TANGLISH[Math.floor(Math.random() * TANGLISH.length)];
   } else {
     text = DIALOGUES[charIdx][pickIdx];
   }
 
+  // Update text first, then show — no flicker
   bubble.textContent = text;
   bubble.classList.add('show');
+  bubbleVisible[charIdx] = true;
 
-  // Set fresh 1.8s hide timer — won't be cancelled by next tap
-  // because we clear it first at the top of this block
-  bubbleTimers[charIdx] = setTimeout(() => {
+  // Reset auto-hide timer — only hides after 2.5s pause in tapping
+  clearTimeout(bubbleAutoHide[charIdx]);
+  bubbleAutoHide[charIdx] = setTimeout(()=>{
     bubble.classList.remove('show');
-  }, 1800);
+    bubbleVisible[charIdx] = false;
+  }, 2500);
 
-  // Float text
   spawnFloatText(wrap);
 
   if (stress <= 0) setTimeout(showVictory, 500);
 }
 
 function updateFace(charIdx, count) {
-  const smug  = document.getElementById('mouth-smug-' + charIdx);
-  const scared = document.getElementById('mouth-scared-' + charIdx);
-  const body  = document.getElementById('body-' + charIdx);
-
+  const smug   = document.getElementById('mouth-smug-'+charIdx);
+  const scared = document.getElementById('mouth-scared-'+charIdx);
+  const body   = document.getElementById('body-'+charIdx);
   if (count >= 8) {
     smug.style.display = 'none';
     scared.style.display = 'block';
     body.classList.remove('scared');
     void body.offsetWidth;
     body.classList.add('scared');
-    setTimeout(() => body.classList.remove('scared'), 320);
+    setTimeout(()=> body.classList.remove('scared'), 320);
   } else if (count >= 4) {
     smug.style.borderRadius = '10px 10px 0 0';
     smug.style.borderTop = '2.5px solid #8b4513';
@@ -850,13 +513,13 @@ function spawnFloatText(wrap) {
   const rect = wrap.getBoundingClientRect();
   const el = document.createElement('div');
   el.className = 'float-text';
-  el.textContent = BONK_WORDS[Math.floor(Math.random() * BONK_WORDS.length)];
-  el.style.left = (rect.left + rect.width / 2 - 45) + 'px';
-  el.style.top  = (rect.top + 20) + 'px';
+  el.textContent = BONK_WORDS[Math.floor(Math.random()*BONK_WORDS.length)];
+  el.style.left = (rect.left + rect.width/2 - 45)+'px';
+  el.style.top  = (rect.top + 20)+'px';
   const colors = ['#ffd93d','#ff6b9d','#a29bfe','#55efc4','#fd79a8','#fdcb6e','#ff7675'];
-  el.style.color = colors[Math.floor(Math.random() * colors.length)];
+  el.style.color = colors[Math.floor(Math.random()*colors.length)];
   document.body.appendChild(el);
-  setTimeout(() => el.remove(), 980);
+  setTimeout(()=> el.remove(), 980);
 }
 
 function updateStressBar() {
@@ -864,25 +527,25 @@ function updateStressBar() {
   const pct  = document.getElementById('stress-pct');
   const gone = document.getElementById('stress-gone');
   const s = Math.max(0, Math.round(stress));
-  bar.style.width = s + '%';
-  pct.textContent = s + '%';
-  gone.textContent = (100 - s) + '%';
-  if (s > 60)      bar.style.background = 'linear-gradient(90deg,#ff4757,#ff6348)';
-  else if (s > 30) bar.style.background = 'linear-gradient(90deg,#ffa502,#ff6348)';
-  else             bar.style.background = 'linear-gradient(90deg,#2ed573,#7bed9f)';
+  bar.style.width = s+'%';
+  pct.textContent = s+'%';
+  gone.textContent = (100-s)+'%';
+  if (s>60)      bar.style.background='linear-gradient(90deg,#ff4757,#ff6348)';
+  else if (s>30) bar.style.background='linear-gradient(90deg,#ffa502,#ff6348)';
+  else           bar.style.background='linear-gradient(90deg,#2ed573,#7bed9f)';
 }
 
 function showComboBanner(n) {
-  const banner = document.getElementById('combo-banner');
+  const b = document.getElementById('combo-banner');
   document.getElementById('combo-num').textContent = n;
-  banner.classList.add('show');
-  clearTimeout(banner._t);
-  banner._t = setTimeout(() => banner.classList.remove('show'), 950);
+  b.classList.add('show');
+  clearTimeout(b._t);
+  b._t = setTimeout(()=> b.classList.remove('show'), 950);
 }
 
 function showVictory() {
   playWin();
-  const v = VICTORY_MESSAGES[Math.floor(Math.random() * VICTORY_MESSAGES.length)];
+  const v = VICTORY_MESSAGES[Math.floor(Math.random()*VICTORY_MESSAGES.length)];
   document.getElementById('victory-msg').innerHTML = v.msg;
   document.getElementById('victory-sub').innerHTML = v.sub;
   document.getElementById('victory').classList.add('show');
@@ -890,7 +553,7 @@ function showVictory() {
 }
 
 function openModal() {
-  const m = LOVE_MESSAGES[Math.floor(Math.random() * LOVE_MESSAGES.length)];
+  const m = LOVE_MESSAGES[Math.floor(Math.random()*LOVE_MESSAGES.length)];
   document.getElementById('modal-msg').innerHTML = m.msg;
   document.getElementById('love-modal').classList.add('show');
 }
@@ -899,72 +562,52 @@ function closeModal() {
 }
 
 function resetGame() {
-  stress = 100; totalBonks = 0; combo = 1; streak = 0;
-  bonkCount = [0, 0];
-  bubbleTimers.forEach((t, i) => {
-    clearTimeout(t);
-    document.getElementById('bubble-' + i).classList.remove('show');
+  stress=100; totalBonks=0; combo=1; streak=0; bonkCount=[0,0];
+  [0,1].forEach(i=>{
+    clearTimeout(bubbleAutoHide[i]);
+    document.getElementById('bubble-'+i).classList.remove('show');
+    bubbleVisible[i]=false;
+    const smug  = document.getElementById('mouth-smug-'+i);
+    const scared= document.getElementById('mouth-scared-'+i);
+    smug.style.cssText=''; scared.style.display='none';
   });
-  bubbleTimers = [null, null];
-  document.getElementById('total-bonks').textContent = '0';
-  document.getElementById('combo-count').textContent = 'x1';
-  document.getElementById('stress-gone').textContent = '0%';
+  document.getElementById('total-bonks').textContent='0';
+  document.getElementById('combo-count').textContent='x1';
+  document.getElementById('stress-gone').textContent='0%';
   document.getElementById('streak-badge').classList.remove('show');
   document.getElementById('victory').classList.remove('show');
   stopConfetti();
   updateStressBar();
-  [0,1].forEach(i => {
-    const smug  = document.getElementById('mouth-smug-' + i);
-    const scared = document.getElementById('mouth-scared-' + i);
-    smug.style.display = '';
-    smug.style.borderRadius = '';
-    smug.style.borderTop = '';
-    smug.style.borderBottom = '';
-    smug.style.transform = 'rotate(10deg)';
-    scared.style.display = 'none';
-  });
 }
 
 // ── CONFETTI ──
-const canvas = document.getElementById('confetti-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-let confettiAnimId = null;
-
-function startConfetti() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  particles = Array.from({length: 130}, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height - canvas.height,
-    w: 8 + Math.random() * 8, h: 4 + Math.random() * 4,
-    color: ['#ffd93d','#ff6b9d','#a29bfe','#55efc4','#fd79a8','#ff4757','#74b9ff'][Math.floor(Math.random()*7)],
-    speed: 2 + Math.random() * 3,
-    angle: Math.random() * 360,
-    spin: (Math.random() - 0.5) * 6,
+const canvas=document.getElementById('confetti-canvas');
+const ctx=canvas.getContext('2d');
+let particles=[], confettiAnimId=null;
+function startConfetti(){
+  canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+  particles=Array.from({length:130},()=>({
+    x:Math.random()*canvas.width, y:Math.random()*canvas.height-canvas.height,
+    w:8+Math.random()*8, h:4+Math.random()*4,
+    color:['#ffd93d','#ff6b9d','#a29bfe','#55efc4','#fd79a8','#ff4757','#74b9ff'][Math.floor(Math.random()*7)],
+    speed:2+Math.random()*3, angle:Math.random()*360, spin:(Math.random()-0.5)*6
   }));
   confettiLoop();
 }
-
-function confettiLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    ctx.save();
-    ctx.translate(p.x, p.y);
-    ctx.rotate(p.angle * Math.PI / 180);
-    ctx.fillStyle = p.color;
-    ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
-    ctx.restore();
-    p.y += p.speed; p.angle += p.spin;
-    if (p.y > canvas.height) { p.y = -10; p.x = Math.random() * canvas.width; }
+function confettiLoop(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.angle*Math.PI/180);
+    ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+    p.y+=p.speed; p.angle+=p.spin;
+    if(p.y>canvas.height){p.y=-10;p.x=Math.random()*canvas.width;}
   });
-  confettiAnimId = requestAnimationFrame(confettiLoop);
+  confettiAnimId=requestAnimationFrame(confettiLoop);
 }
-
-function stopConfetti() {
-  if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles = [];
+function stopConfetti(){
+  if(confettiAnimId) cancelAnimationFrame(confettiAnimId);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles=[];
 }
 </script>
 </body>
